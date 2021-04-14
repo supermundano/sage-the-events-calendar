@@ -30,7 +30,7 @@ You won't have the blade functionality but at least you can use the plugin.
 Install the composer package (in the theme folder).
 
 ```bash
-$ composer require supermundano/sage-the-events-calendar```
+$ composer require supermundano/sage-the-events-calendar
 ```
 
 Add the package to the cached package manifest.
@@ -42,7 +42,7 @@ $ wp acorn package:discover
 Publish the required `template-default.blade.php` view
 
 ```bash
-$ wp acorn vendor:publish --tag="TheEventsCalendar Templates"```
+$ wp acorn vendor:publish --tag="TheEventsCalendar Templates"
 ```
 
 ## Bug Reports
