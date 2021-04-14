@@ -13,7 +13,7 @@ class TheEventsCalendarServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('tribe-events', TheEventsCalendar::class);
+        $this->app->singleton('tribe_events', TheEventsCalendar::class);
     }
 
     /**
