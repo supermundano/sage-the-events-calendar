@@ -65,6 +65,8 @@ We need to figure out how to:
 - port those actions before/after template rendering: https://github.com/the-events-calendar/tribe-common/blob/a561e923b1eb4877e78abeb44f9db06e357cb650/src/Tribe/Template.php#L893:L900
 - set the current hook name back again https://github.com/the-events-calendar/tribe-common/blob/a561e923b1eb4877e78abeb44f9db06e357cb650/src/Tribe/Template.php#L915
 
+Try using this gist from Log1x
+https://gist.github.com/Log1x/d02f35f6f9de5f1a5078a3807c6a36c2
 
 ## License
 
