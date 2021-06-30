@@ -48,6 +48,13 @@ class TheEventsCalendar
     protected function locateThemeTemplate(string $template): string
     {
         $plugin_path = trailingslashit(dirname( \TRIBE_EVENTS_FILE ));
+
+        // Convert any backslashes to forward slashes for Windows compatibility.
+        if (DIRECTORY_SEPARATOR === '\\') {
+            $plugin_path = str_replace('\\', '/', $plugin_path);
+            $template = str_replace('\\', '/', $template);
+        }
+
         $themeTemplate = 'tribe/events/v2' . str_replace($plugin_path . 'src/views/v2', '', $template);
 
         return locate_template($this->sageFinder->locate($themeTemplate));
