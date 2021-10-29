@@ -22,6 +22,49 @@ class TheEventsCalendar
     }
 
     /**
+     * Override The Events Calendar's V2 Views
+     *
+     * Based on:
+     * @link https://gist.github.com/cliffordp/39e68939132bd0f483e0111972165455
+     * @link https://theeventscalendar.com/knowledgebase/k/custom-templates-for-the-updated-calendar-views/
+     *
+     * @see  \Tribe__Template::tribe_template_theme_path_list()
+     *
+     * @param array $folders Array of data for loading locations.
+     *
+     * @return array
+     */
+    public function tribeTemplateThemePathList($folders)
+    {
+        $sage_tribe_base_path = \Roots\resource_path('views/tribe/');
+
+        $folders['sage_tec'] = [
+            'id'       => 'sage_tec',
+            'priority' => 5,
+            'path'     => $sage_tribe_base_path . 'events/v2',
+        ];
+
+        $folders['sage_tec_pro'] = [
+            'id'       => 'sage_tec_pro',
+            'priority' => 5,
+            'path'     => $sage_tribe_base_path . 'pro/v2',
+        ];
+
+        $folders['sage_et'] = [
+            'id'       => 'sage_et',
+            'priority' => 5,
+            'path'     => $sage_tribe_base_path . 'tickets/v2',
+        ];
+
+        $folders['sage_ce'] = [
+            'id'       => 'sage_ce',
+            'priority' => 5,
+            'path'     => $sage_tribe_base_path . 'community/v2',
+        ];
+        return $folders;
+    }
+
+    /**
      * Support blade templates for the main template include.
      */
     public function templateInclude(string $template): string
@@ -37,7 +80,7 @@ class TheEventsCalendar
      */
     protected function isTribeTemplate(string $template): bool
     {
-        $plugin_path = dirname( \TRIBE_EVENTS_FILE );
+        $plugin_path = dirname(\TRIBE_EVENTS_FILE);
         $pos = strpos($template, $plugin_path);
         return $pos !== false;
     }
@@ -47,7 +90,7 @@ class TheEventsCalendar
      */
     protected function locateThemeTemplate(string $template): string
     {
-        $plugin_path = trailingslashit(dirname( \TRIBE_EVENTS_FILE ));
+        $plugin_path = trailingslashit(dirname(\TRIBE_EVENTS_FILE));
 
         // Convert any backslashes to forward slashes for Windows compatibility.
         if (DIRECTORY_SEPARATOR === '\\') {

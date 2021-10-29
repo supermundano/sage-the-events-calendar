@@ -28,15 +28,17 @@ class TheEventsCalendarServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__ . '/../publishes/resources/views' => $this->app->resourcePath('views/tribe/events/v2'),
+            __DIR__ . '/../publishes/root' => $this->app->basePath(),
+            __DIR__ . '/../publishes/resources/views/root' => $this->app->resourcePath('views'),
+            __DIR__ . '/../publishes/resources/views/tribe' => $this->app->resourcePath('views/tribe/events/v2'),
         ], 'TheEventsCalendar Templates');
-
     }
 
     public function bindFilters()
     {
         $tribeEvents = $this->app['tribe_events'];
 
-        add_filter( 'template_include', [$tribeEvents, 'templateInclude'], 51);
+        add_filter('tribe_template_theme_path_list', [$tribeEvents, 'tribeTemplateThemePathList'], 10, 1);
+        add_filter('template_include', [$tribeEvents, 'templateInclude'], 51);
     }
 }
