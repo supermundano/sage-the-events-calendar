@@ -37,6 +37,7 @@ class TheEventsCalendarServiceProvider extends ServiceProvider
     {
         $tribeEvents = $this->app['tribe_events'];
 
+        add_filter('tribe_template_theme_path_list', [$tribeEvents, 'tribeTemplateThemePathList'], 10, 1);
         add_filter( 'template_include', [$tribeEvents, 'templateInclude'], 51);
     }
 }
