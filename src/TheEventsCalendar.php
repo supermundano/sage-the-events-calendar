@@ -8,6 +8,7 @@ use Roots\Acorn\View\FileViewFinder;
 use Illuminate\Support\Str;
 
 use function Roots\view;
+use function Roots\resource_path;
 
 class TheEventsCalendar
 {
