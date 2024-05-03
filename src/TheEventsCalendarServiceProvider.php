@@ -2,7 +2,7 @@
 
 namespace Supermundano\Sage\TheEventsCalendar;
 
-use Roots\Acorn\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class TheEventsCalendarServiceProvider extends ServiceProvider
 {
